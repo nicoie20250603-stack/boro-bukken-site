@@ -14,6 +14,14 @@ export default function Header() {
           <Link href="/membership" className="hover:underline">
             会員プラン
           </Link>
+          <a
+            href="https://x.com/rengonborobuken"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            X(旧Twitter)
+          </a>
         </nav>
       </div>
     </header>
