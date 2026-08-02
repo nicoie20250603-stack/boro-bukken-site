@@ -1,10 +1,12 @@
 import Link from "next/link";
+import HouseIllustration from "./HouseIllustration";
 
 export default function Header() {
   return (
-    <header className="border-b border-black/10 dark:border-white/10">
+    <header className="border-b border-border bg-card/60">
       <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-4">
-        <Link href="/" className="text-lg font-semibold tracking-tight">
+        <Link href="/" className="flex items-center gap-2 text-lg font-semibold tracking-tight text-accent">
+          <HouseIllustration className="h-8 w-8 text-accent" />
           ボロ物件投資ラボ
         </Link>
         <nav className="flex gap-4 text-sm">
