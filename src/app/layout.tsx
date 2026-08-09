@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://boro-bukken-site.vercel.app"),
   title: "ボロ物件投資ラボ",
-  description: "田舎の不動産会社員による、ボロ物件投資の実践情報発信",
+  description: "宮城県の空き家・ボロ物件情報。空き家の管理・処分にお悩みの方へ、実践的なノウハウを発信しています。",
 };
 
 export default function RootLayout({
