@@ -22,7 +22,15 @@ function readArticleFile(filename: string): Article {
   const slug = filename.replace(/\.mdx$/, "");
   const fullPath = path.join(ARTICLES_DIR, filename);
   const raw = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(raw);
+
+  let parsed: ReturnType<typeof matter>;
+  try {
+    parsed = matter(raw);
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    throw new Error(`Front matter の解析に失敗しました: ${filename}\n${reason}`);
+  }
+  const { data, content } = parsed;
 
   return {
     slug,
