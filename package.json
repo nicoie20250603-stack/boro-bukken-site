@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npm run check:content",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:content": "node scripts/check-content.mjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

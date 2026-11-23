@@ -38,6 +38,20 @@ excerpt: "一覧ページに表示される短い要約文"
 - `tier` は `"free"`(無料公開)または `"member"`(将来の会員限定記事用、現時点ではまだ実際のロック機能はありません)
 - ファイルを保存してデプロイ(Vercelと連携していれば `git push` するだけ)すれば公開されます
 
+### 公開前の自動チェック
+
+front matter の書き間違い(特にタイトル内の半角 `"` がクォートを閉じてしまうもの)でビルドが止まったまま気づかない、という事故を防ぐため、次の3か所で自動チェックが走ります。壊れているファイル名と原因が表示されます。
+
+```bash
+npm run check:content   # 手元で確認する
+```
+
+- `npm run build` の直前(prebuild)
+- Vercel の `next build` 実行時(`next.config.ts` から実行)
+- GitHub Actions(`.github/workflows/check-content.yml`、push / pull_request 時)
+
+タイトルや excerpt の中で引用符を使いたいときは、半角 `"` を `\"` でエスケープするか、`「」`『』に置き換えてください。
+
 ## 今後の予定(フェーズ)
 
 1. ✅ 無料記事のみの単純なブログ・ローカル動作確認
